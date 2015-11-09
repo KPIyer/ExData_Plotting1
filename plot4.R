@@ -1,0 +1,11 @@
+dev.set(2)
+par(mfrow=c(2,2))
+plot(dataset$DateTime, dataset$Global_active_power, type="l", xlab="", ylab="Global Active Power")
+plot(dataset$DateTime, dataset$Voltage, type="l", xlab="datetime", ylab="Voltage")
+with(dataset, plot(DateTime, Sub_metering_1, main="", type="l", xlab="",ylab="Energy sub metering"))
+lines(dataset$DateTime, dataset$Sub_metering_2, type="l", col="red")
+lines(dataset$DateTime, dataset$Sub_metering_3, type="l", col="blue")
+legend("topright", legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"), col=c("black", "red", "blue"), lty=1, lwd=1);
+plot(dataset$DateTime, dataset$Global_reactive_power, type="l", xlab="datetime", ylab="Global Reactive Power")
+dev.copy(png, file="plot4.png", width=480, height=480)
+dev.off()
